@@ -1,0 +1,189 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ url_for('static', filename = 'black.js') }}"></script>
+{% endblock %}
+
+{% block style %}
+	<style>
+        .bin{
+        	background-color: rgb(56,56,56);
+			padding: 10px;
+			color: white;
+		}
+
+		.title{
+			text-align: center;
+			font-size: 24px;
+		}
+
+		.info{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 14px;
+		}
+
+		#hardcoverinfo {
+		    display: none;
+		}
+
+		#usedinfo {
+		    display: none;
+		}
+
+		#soiledinfo {
+		    display: none;
+		}
+
+		#heavily-soiledinfo {
+		    display: none;
+		}
+
+		#coatedinfo {
+		    display: none;
+		}
+
+		#glassinfo {
+		    display: none;
+		}
+
+		#plasticinfo {
+		    display: none;
+		}
+
+		#styrofoaminfo {
+		    display: none;
+		}
+
+		img{
+			height: 120px;
+			width: 158px;
+			margin-left: 10px;
+		}
+    </style>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12 bin">
+			<div class="row">
+				<div class="col-md-12 title">
+					TRASH
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul>
+						<li class="info" id="hardcover">
+							Hardcover books
+							<a href="#">(more info)</a>
+						</li>
+						<div id="hardcoverinfo">
+							<ul>
+								<li class="info">
+									Recyclable, if the cover is removed.
+								</li>
+								<li class="info">
+									Image: <img src="/static/images/hardcover-books.jpg">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="used">
+							Used napkins, paper towels or tissues
+							<a href="#">(more info)</a>
+						</li>
+						<div id="usedinfo">
+							<ul>
+								<li class="info">
+									Image: <img src="/static/images/used-napkins.jpg">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="soiled">
+							Soiled paper cups or plates
+							<a href="#">(more info)</a>
+						</li>
+						<div id="soiledinfo">
+							<ul>
+								<li class="info">
+									Image: <img src="/static/images/soiled-paper-cup.png">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="heavily-soiled">
+							Heavily soiled paper
+							<a href="#">(more info)</a>
+						</li>
+						<div id="heavily-soiledinfo">
+							<ul>
+								<li class="info">
+									Image: <img src="/static/images/heavily-soiled-paper.jpg">
+								</li>
+							</ul>
+						</div>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<ul>
+						<li class="info" id="coated">
+							Plastic- or wax-coated paper or cardboard
+							<a href="#">(more info)</a>
+						</li>
+						<div id="coatedinfo">
+							<ul>
+								<li class="info">
+									Candy wrappers, take-out containers
+								</li>
+								<li class="info">
+									Image: <img src="/static/images/candy-wrapper.jpg">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="glass">
+							Any glass items other than glass bottles and jars
+							<a href="#">(more info)</a>
+						</li>
+						<div id="glassinfo">
+							<ul>
+								<li class="info">
+									Mirrors, light bulbs, ceramics, glassware
+								</li>
+								<li class="info">
+									Image: <img src="/static/images/ceramics.jpg">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="plastic">
+							Any plastic items other than plastic bottles, jugs and containers
+							<a href="#">(more info)</a>
+						</li>
+						<div id="plasticinfo">
+							<ul>
+								<li class="info">
+									Plastic toys, cups, bags, wrap
+								</li>
+								<li class="info">
+									Image: <img src="/static/images/plastic-toys.jpg">
+								</li>
+							</ul>
+						</div>
+						<li class="info" id="styrofoam">
+							Styrofoam
+							<a href="#">(more info)</a>
+						</li>
+						<div id="styrofoaminfo">
+							<ul>
+								<li class="info">
+									Cups, egg cartons, trays
+								</li>
+								<li class="info">
+									Image: <img src="/static/images/styrofoam.jpg">
+								</li>
+							</ul>
+						</div>
+					</ul> 
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

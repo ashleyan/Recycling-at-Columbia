@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+{% endblock %}
+
+{% block style %}
+	<style>
+		.retake-button {
+			float: right;
+			margin-top: 20px;
+		}
+
+		.red {
+			background-color: red;
+			height: 300px;
+		}
+
+		.green {
+			background-color: rgb(47,95,75);
+			height: 300px;
+		}
+
+		.blue {
+			background-color: rgb(0, 56, 102);
+			height: 300px;
+		}
+
+		.black {
+			background-color: rgb(56,56,56);
+			height: 300px;
+		}
+
+		.green-bin-label{
+			padding-top: 50px;
+			color: white;
+			text-align: center;
+		}
+
+		.blue-bin-label{
+			padding-top: 50px;
+			color: white;
+			text-align: center;
+		}
+
+		.black-bin-label{
+			padding-top: 50px;
+			color: white;
+			text-align: center;
+		}
+
+		.green-bin{
+			background-color: white;
+		}
+
+		.blue-bin{
+			background-color: white;
+		}
+
+		.black-bin{
+			background-color: white;
+		}
+
+		.move{
+			cursor: move;
+			border: solid;
+			border-width: 1px;
+			border-color: lightgray;
+		}
+
+		.middle{
+			margin-bottom: 30px;
+		}
+
+		.text{
+			text-align: center;
+			font-size: 24px;
+		}
+
+		.caption{
+			text-align: center;
+		}
+
+		img{
+			height: 100px;
+			width: 158px;
+		}
+	</style>
+{% endblock %}
+
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-2">
+			<div class="row">
+				<div class="col-md-12 glass"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 candy-wrapper"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 plastic-toys"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 wrapping-paper"></div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row middle">
+				<div class="col-md-12 text">
+					Drag the items to the correct bins!
+				</div>
+			</div>
+			<div class="row middle">
+				<div class="col-md-4">
+					<div class="black-bin-label black">
+						TRASH
+					</div>
+					<div class="black-bin"></div>
+				</div>
+				<div class="col-md-4">
+					<div class="green-bin-label green">
+						MIXED PAPER
+					</div>
+					<div class="green-bin"></div>
+				</div>
+				<div class="col-md-4 right-bin">
+					<div class="blue-bin-label blue">
+						<span>METAL, PLASTIC,</span>
+						<br> 
+						<span>GLASS, CARTONS</span>
+					</div>
+					<div class="blue-bin"></div>
+				</div>
+			</div>
+			<div class="row middle">
+				<div class="col-md-3 paper"></div>
+				<div class="col-md-3 plastic"></div>
+				<div class="col-md-3 newspaper"></div>
+				<div class="col-md-3 phonebook"></div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="row">
+				<div class="col-md-12 ceramics"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 styrofoam"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 drink-box"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 aluminum-foil"></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
