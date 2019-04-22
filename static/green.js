@@ -1,37 +1,46 @@
 $(document).ready(function(){
-	$("#paper").click(function () {
+	$("#paper").click(function(e) {
 		$("#paperinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#mail").click(function () {
+	$("#mail").click(function(e) {
 		$("#mailinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#wrapping").click(function () {
+	$("#wrapping").click(function(e) {
 		$("#wrappinginfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#smooth-cardboard").click(function () {
+	$("#smooth-cardboard").click(function(e) {
 		$("#smooth-cardboardinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#corrugated-cardboard").click(function () {
+	$("#corrugated-cardboard").click(function(e) {
 		$("#corrugated-cardboardinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#bags").click(function () {
+	$("#bags").click(function(e) {
 		$("#bagsinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#cardboard").click(function () {
+	$("#cardboard").click(function(e) {
 		$("#cardboardinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#newspapers").click(function () {
+	$("#newspapers").click(function(e) {
 		$("#newspapersinfo").toggle();
+		e.preventDefault();
 	})
 
-	$("#books").click(function () {
+	$("#books").click(function(e) {
 		$("#booksinfo").toggle();
+		e.preventDefault();
 	})
 })
