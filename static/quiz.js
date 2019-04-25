@@ -1,7 +1,18 @@
 // final product should be 5-10 min long
 
-// maybe
+// only put explanation why wrong, not what the correct answer is
+// get rid of the alerts and put the explanations on the bins(?) instead
+// turn border of image red instead of whole bin when user gets it wrong (put a margin around image)
+// make end of quiz more rewarding (maybe print out certificate?)
+
+// later
+// rn it tells total Qs wrong (but includes each retake instead of per retake)
+// populate bins with the names of the trash after they were dragged into the bin correctly
+// have a quiz that includes ALL the images as well
+// have a gallery that includes ALL the images to drag
 // smaller bin drop targets
+
+// maybe
 // put name of bin underneath bin
 // populate bins with pictures once they are dragged to correct bin
 // make users look at bin info page that contains the most amount of Qs they got wrong
