@@ -11,11 +11,6 @@
 			margin-top: 20px;
 		}
 
-		.red {
-			background-color: red;
-			height: 300px;
-		}
-
 		.green {
 			background-color: rgb(47,95,75);
 			height: 300px;
@@ -64,8 +59,15 @@
 		.move{
 			cursor: move;
 			border: solid;
-			border-width: 1px;
+			border-width: 3px;
+		}
+
+		.gray-border{
 			border-color: lightgray;
+		}
+
+		.red-border {
+			border-color: red;
 		}
 
 		.middle{
@@ -79,12 +81,28 @@
 
 		.caption{
 			text-align: center;
-			background: white;
+			background-color: white;
 		}
 
 		img{
 			height: 90px;
-			width: 158px;
+			width: 154px;
+		}
+
+		.congrats{
+			text-align: center;
+			font-size: 32px;
+		}
+
+		.wrong-text{
+			text-align: center;
+			font-size: 20px;
+		}
+
+		.wrong-info-text{
+			text-align: center;
+			font-size: 16px;
+			margin-top: 30px;
 		}
 	</style>
 {% endblock %}
@@ -107,7 +125,7 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div class="row middle">
+			<div class="row middle first-middle">
 				<div class="col-md-12 text">
 					Drag the items to the correct bins!
 				</div>
@@ -141,7 +159,7 @@
 				<div class="col-md-3 phonebook"></div>
 			</div>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-2 right-column">
 			<div class="row">
 				<div class="col-md-12 ceramics"></div>
 			</div>

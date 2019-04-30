@@ -1,10 +1,5 @@
 // final product should be 5-10 min long
 
-// only put explanation why wrong, not what the correct answer is
-// get rid of the alerts and put the explanations on the bins(?) instead
-// turn border of image red instead of whole bin when user gets it wrong (put a margin around image)
-// make end of quiz more rewarding (maybe print out certificate?)
-
 // later
 // rn it tells total Qs wrong (but includes each retake instead of per retake)
 // populate bins with the names of the trash after they were dragged into the bin correctly
@@ -17,6 +12,7 @@
 // populate bins with pictures once they are dragged to correct bin
 // make users look at bin info page that contains the most amount of Qs they got wrong
 // shuffle quiz pictures
+// make end of quiz have print out certificate
 
 var ceramicslist = ["/static/images/ceramics.jpg"]
 var styrofoamlist = ["/static/images/styrofoam.jpg"]
@@ -49,7 +45,7 @@ function makeNames(names, class_name, caption) {
 	$(class_name).empty()
 	$.each(names, function( index, value ) {
 		// Make the draggable name object
-		var new_row = $("<figure class='move' id='" + value + "'>")
+		var new_row = $("<figure class='move gray-border' id='" + value + "'>")
 		var new_img = $("<img src='" + value + "'>")
 		var new_cap = $("<figcaption class='caption'>")
 		new_cap.text(caption)
@@ -65,6 +61,8 @@ function makeNames(names, class_name, caption) {
 }
 
 function makeAllNames() {
+	$(".wrong-info").remove()
+
 	makeNames(paperlist, ".paper", "Paper")
 	makeNames(plasticlist, ".plastic", "Plastic")
 	makeNames(newspaperlist, ".newspaper", "Newspaper")
@@ -80,17 +78,31 @@ function makeAllNames() {
 
 	if (allListsEmpty()) {
 		if (wrong.length != 0) {
-			alert("You got " + number_wrong + " answers wrong in total: " + black_wrong + 
-				" of your answers should've been in the black bin, " + green_wrong + 
-				" of your answers should've been in the green bin, and " + blue_wrong +
-				" of your answers should've been in the blue bin.")
 			// Make retake quiz button
 			var new_button = $("<div>")
 			var button = $("<button class='btn btn-warning retake-button'>")
 			$(new_button).append(button.text("RETAKE QUIZ WITH WRONG ANSWERS"))
 	   		$(".right-bin").append(new_button)
+	   		// Display wrong message
+			var new_row = $("<div class='row wrong-message'>")
+			var new_col = $("<div class='col-md-12 wrong-text'>")
+			$(new_row).append(new_col.text("You got " + number_wrong + " answer(s) wrong in total: " + black_wrong + 
+				" of your answer(s) should've been in the black bin, " + green_wrong + 
+				" of your answer(s) should've been in the green bin, and " + blue_wrong +
+				" of your answer(s) should've been in the blue bin."))
+	   		$(".right-column").append(new_row)
    		} else {
-   			alert("Congratulations, you have mastered the quiz!")
+   			// Clear page
+   			$(".container").empty()
+   			// Display completion message
+			var new_row = $("<div class='row'>")
+			var new_col = $("<div class='col-md-12'>")
+			var new_sub_row = $("<div class='row middle'>")
+			var new_sub_col = $("<div class='col-md-12 congrats'>")
+			$(new_sub_row).append(new_sub_col.text("Congratulations, you have mastered the quiz!"))
+			$(new_col).append(new_sub_row)
+			$(new_row).append(new_col)
+	   		$(".container").append(new_row)
    		}
 	}
 }
@@ -103,80 +115,118 @@ function allListsEmpty() {
 }
 
 function incorrectAnswer(parent) {
+	$(".wrong-info").remove()
 	number_wrong += 1
+
 	if (parent.hasClass("ceramics")) {
 		black_wrong += 1
 		wrong.push(".ceramics")
-		alert("Ceramics actually belong in the BLACK bin!") 
-		alert("According to Waste Management, the presence of ceramics like coffee mugs and plates in a batch of your typical, curbside-recyclable glass will weaken the recycled product, which is why ceramics aren’t usually accepted.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***According to Waste Management, the presence of ceramics like coffee mugs and plates in a batch of your typical, curbside-recyclable glass will weaken the recycled product, which is why ceramics aren’t usually accepted."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("styrofoam")) {
 		black_wrong += 1
 		wrong.push(".styrofoam")
-		alert("Styrofoam actually belongs in the BLACK bin!")
-		alert("Styrofoam is a Dow Chemical Company trademark for a specific type of extruded polystyrene (EPS) foam used only for art supplies and insulation. There are two reasons EPS isn’t allowed in recycle bins: density and contamination. Polystyrene foam is 95% air so it is not cost-effective to store or ship. It is often contaminated with food or drink, and it is difficult to clean because it is so porous.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Styrofoam is a Dow Chemical Company trademark for a specific type of extruded polystyrene (EPS) foam used only for art supplies and insulation. There are two reasons EPS isn’t allowed in recycle bins: density and contamination. Polystyrene foam is 95% air so it is not cost-effective to store or ship. It is often contaminated with food or drink, and it is difficult to clean because it is so porous."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("candy-wrapper")) {
 		black_wrong += 1
 		wrong.push(".candy-wrapper")
-		alert("Candy wrappers actually belong in the BLACK bin!")
-		alert("Candy wrappers are usually made up of mixed materials, making the recovery of useful materials difficult and expensive. As a result, most waste management companies, manufacturers and municipal recycling facilities tend to turn their backs from candy wrappers.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Candy wrappers are usually made up of mixed materials, making the recovery of useful materials difficult and expensive. As a result, most waste management companies, manufacturers and municipal recycling facilities tend to turn their backs from candy wrappers."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("plastic-toys")) {
 		black_wrong += 1
 		wrong.push(".plastic-toys")
-		alert("Plastic toys actually belong in the BLACK bin!")
-		alert("Plastic toys pose a unique challenge because they're typically composed of other materials too, such as metals. The recyclable components can't be separated out, and become prohibitive for recycling centers.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Plastic toys pose a unique challenge because they're typically composed of other materials too, such as metals. The recyclable components can't be separated out, and become prohibitive for recycling centers."))
+   		$(".first-middle").append(new_row)
 	}
 
 	if (parent.hasClass("paper")) {
 		green_wrong += 1
 		wrong.push(".paper")
-		alert("Paper actually belongs in the GREEN bin!")
-		alert("Paper... is paper, so it belongs in the 'Mixed Paper' bin.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Paper... is paper, so it belongs in the 'Mixed Paper' bin!"))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("newspaper")) {
 		green_wrong += 1
 		wrong.push(".newspaper")
-		alert("Newspapers actually belong in the GREEN bin!")
-		alert("Newspapers are made of paper, so they belong in the 'Mixed Paper' bin.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Newspapers are made of paper, so they belong in the 'Mixed Paper' bin."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("phonebook")) {
 		green_wrong += 1
 		wrong.push(".phonebook")
-		alert("Phonebooks actually belong in the GREEN bin!")
-		alert("Phonebooks are made of paper, so they belong in the 'Mixed Paper' bin.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Phonebooks are made of paper, so they belong in the 'Mixed Paper' bin."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("wrapping-paper")) {
 		green_wrong += 1
 		wrong.push(".wrapping-paper")
-		alert("Wrapping paper actually belongs in the GREEN bin!")
-		alert("Wrapping paper is made of paper, so it belongs in the 'Mixed Paper' bin.")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Wrapping paper is made of paper, so it belongs in the 'Mixed Paper' bin."))
+   		$(".first-middle").append(new_row)
 	}
 
 	if (parent.hasClass("plastic")) {
 		blue_wrong += 1
 		wrong.push(".plastic")
-		alert("Plastic actually belongs in the BLUE bin!")
-		alert("Plastic... is plastic, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin!")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Plastic... is plastic, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin!"))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("glass")) {
 		blue_wrong += 1
 		wrong.push(".glass")
-		alert("Glass actually belongs in the BLUE bin!")
-		alert("Glass... is glass, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin!")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Glass... is glass, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin!"))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("aluminum-foil")) {
 		blue_wrong += 1
 		wrong.push(".aluminum-foil")
-		alert("Aluminum foil actually belongs in the BLUE bin!")
-		alert("Aluminum foil is made of metal, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin!")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Aluminum foil is made of metal, so it belongs in the 'Metal, Plastic, Glass, Cartons' bin."))
+   		$(".first-middle").append(new_row)
 	}
 	if (parent.hasClass("drink-box")) {
 		blue_wrong += 1
 		wrong.push(".drink-box")
-		alert("Drink boxes actually belong in the BLUE bin!")
-		alert("Drink boxes are cartons, so they belong in the 'Metal, Plastic, Glass, Cartons' bin!")
+		// Display wrong message
+		var new_row = $("<div class='row wrong-info'>")
+		var new_col = $("<div class='col-md-12 wrong-info-text'>")
+		$(new_row).append(new_col.text("***Drink boxes are cartons, so they belong in the 'Metal, Plastic, Glass, Cartons' bin."))
+   		$(".first-middle").append(new_row)
 	}
 }
 
@@ -236,12 +286,6 @@ $(document).ready(function(){
 	    },
 		drop: function( event, ui ) {
 			if(ui.draggable.parent().is(black)) {
-				$(this).remove("red")
-				$(this).addClass("black")
-				$(".blue-bin-label").remove("red")
-				$(".blue-bin-label").addClass("blue")
-				$(".green-bin-label").remove("red")
-				$(".green-bin-label").addClass("green")
 				// Get dropped name
 				var draggableId = ui.draggable.attr("id")
 
@@ -262,12 +306,8 @@ $(document).ready(function(){
 				// Update the interface to display the new lists
 				makeAllNames()
 			} else {
-				$(".blue-bin-label").remove("red")
-				$(".blue-bin-label").addClass("blue")
-				$(".green-bin-label").remove("red")
-				$(".green-bin-label").addClass("green")
-				$(this).removeClass("black")
-				$(this).addClass("red")
+				$(ui.draggable).removeClass("gray-border")
+				$(ui.draggable).addClass("red-border")
 				incorrectAnswer(ui.draggable.parent())
 			}
 		}
@@ -280,12 +320,6 @@ $(document).ready(function(){
 	    },
 		drop: function( event, ui ) {
 			if(ui.draggable.parent().is(green)) {
-				$(this).remove("red")
-				$(this).addClass("green")
-				$(".blue-bin-label").remove("red")
-				$(".blue-bin-label").addClass("blue")
-				$(".black-bin-label").remove("red")
-				$(".black-bin-label").addClass("black")
 				// Get dropped name
 				var draggableId = ui.draggable.attr("id")
 
@@ -306,12 +340,8 @@ $(document).ready(function(){
 				// Update the interface to display the new lists
 				makeAllNames()
 			} else {
-				$(".blue-bin-label").remove("red")
-				$(".blue-bin-label").addClass("blue")
-				$(".black-bin-label").remove("red")
-				$(".black-bin-label").addClass("black")
-				$(this).removeClass("green")
-				$(this).addClass("red")
+				$(ui.draggable).removeClass("gray-border")
+				$(ui.draggable).addClass("red-border")
 				incorrectAnswer(ui.draggable.parent())
 			}
 		}
@@ -324,12 +354,6 @@ $(document).ready(function(){
 	    },
 		drop: function( event, ui ) {
 			if(ui.draggable.parent().is(blue)) {
-				$(this).removeClass("red")
-				$(this).addClass("blue")
-				$(".green-bin-label").remove("red")
-				$(".green-bin-label").addClass("green")
-				$(".black-bin-label").remove("red")
-				$(".black-bin-label").addClass("black")
 				// Get dropped name
 				var draggableId = ui.draggable.attr("id")
 
@@ -350,12 +374,8 @@ $(document).ready(function(){
 				// Update the interface to display the new lists
 				makeAllNames()
 			} else {
-				$(".green-bin-label").remove("red")
-				$(".green-bin-label").addClass("green")
-				$(".black-bin-label").remove("red")
-				$(".black-bin-label").addClass("black")
-				$(this).removeClass("blue")
-				$(this).addClass("red")
+				$(ui.draggable).removeClass("gray-border")
+				$(ui.draggable).addClass("red-border")
 				incorrectAnswer(ui.draggable.parent())
 			}
 		}
@@ -364,6 +384,7 @@ $(document).ready(function(){
 	// User clicks 'RETAKE QUIZ WITH WRONG ANSWERS'
 	$(function(){
 		$(document).on("click", ".retake-button", function(){
+			$(".wrong-message").remove()
 			$(".retake-button").remove()
 			populateListsWithIncorrect()
 			makeAllNames()
