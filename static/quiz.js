@@ -1,14 +1,7 @@
 // final product should be 5-10 min long
 
-// display
-// drag and drop thing for info pages
-// put home button at bottom of every info page
-// making "why wrong" descriptions more readable
-
-
-
-
 // later
+// making "why wrong" descriptions more readable
 // user test homepage (is it obvious to users that you click on the bins)
 // rn it tells total Qs wrong (but includes each retake instead of per retake)
 // have a quiz that includes ALL the images as well
@@ -105,12 +98,13 @@ function makeAllNames() {
    			// Display completion message
 			var new_row = $("<div class='row'>")
 			var new_col = $("<div class='col-md-12'>")
-			var new_sub_row = $("<div class='row middle'>")
+			var new_sub_row = $("<div class='row'>")
 			var new_sub_col = $("<div class='col-md-12 congrats'>")
 			$(new_sub_row).append(new_sub_col.text("Congratulations, you have mastered the quiz!"))
 			$(new_col).append(new_sub_row)
 			$(new_row).append(new_col)
 	   		$(".instructions").append(new_row)
+	   		$("#backtohome").toggle();
    		}
 	}
 }
@@ -451,6 +445,9 @@ $(document).ready(function(){
 		$(document).on("click", ".retake-button", function(){
 			$(".wrong-message").remove()
 			$(".retake-button").remove()
+			$(".black-title").empty()
+			$(".green-title").empty()
+			$(".blue-title").empty()
 			populateListsWithIncorrect()
 			makeAllNames()
 			wrong = []

@@ -6,210 +6,104 @@
 
 {% block style %}
 	<style>
-        .bin{
-        	background-color: rgb(47,95,75);
-			padding: 20px;
+		img {
+			height: 110px;
+			width: 120px;
+		}
+
+		.green {
+			background-color: rgb(47,95,75);
+			height: 580px;
+		}
+
+		.green-bin-label{
+			padding-top: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
 			color: white;
+			font-size: 20px;
+			font-family: "Times New Roman", Times, serif;
 		}
-		
-		.title{
+
+		.green-bin-text{
 			text-align: center;
+			font-size: 34px;
+		}
+
+		.green-bin{
+			background-color: white;
+		}
+
+		.button{
+			margin-top: 25px;
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.text{
 			font-size: 24px;
-		}
-
-		.info{
-			margin-top: 10px;
-		}
-
-		#paperinfo {
-		    display: none;
-		}
-
-		#mailinfo {
-		    display: none;
-		}
-
-		#wrappinginfo {
-		    display: none;
-		}
-
-		#smooth-cardboardinfo {
-		    display: none;
-		}
-
-		#corrugated-cardboardinfo {
-		    display: none;
-		}
-
-		#bagsinfo {
-		    display: none;
-		}
-
-		#cardboardinfo {
-		    display: none;
-		}
-
-		#newspapersinfo {
-		    display: none;
-		}
-
-		#booksinfo {
-		    display: none;
-		}
-
-		img{
-			height: 120px;
-			width: 158px;
-			margin-left: 10px;
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;
 		}
     </style>
 {% endblock %}
 
 {% block content %}
+<div class="col-md-12">
 	<div class="row">
-		<div class="col-md-12 bin">
-			<div class="row">
-				<div class="col-md-12 title">
-					MIXED PAPER
-				</div>
+
+		<div class="col-md-8">
+			<div class="green-bin-label green">
+				<div class="green-bin-text">MIXED PAPER</div>
+				<ul class="green-title"></ul>
+			</div>
+			<div class="green-bin"></div>
+			<div class="button">
+				<a href="{{ url_for('home') }}" class="button">
+					<button class='btn btn-warning text'>Back to Homepage</button>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="row text">
+				Put each of the items back into the bin on the left to reveal details!
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<ul>
-						<li class="info">
-							Paper
-						</li>
-						<div>
-							<ul>
-								<li class="info" id="paper">
-									White, colored and glossy paper
-									<a href="#">(more info)</a>
-								</li>
-								<div id="paperinfo">
-									<ul>
-										<li class="info">
-											Staples OK, but not spiral bindings.
-										</li>
-										<li class="info">
-											Image: <img src="/static/images/paper.jpeg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="mail">
-									Mail and envelopes
-									<a href="#">(more info)</a>
-								</li>
-								<div id="mailinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/mail-and-envelopes.jpg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="wrapping">
-									Wrapping paper
-									<a href="#">(more info)</a>
-								</li>
-								<div id="wrappinginfo">
-									<ul>
-										<li class="info">
-											Remove ribbon and tape.
-										</li>
-										<li class="info">
-											Image: <img src="/static/images/wrapping-paper.jpg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="bags">
-									Paper bags
-									<a href="#">(more info)</a>
-								</li>
-								<div id="bagsinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/paper-bags.jpg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="newspapers">
-									Newspapers, magazines and catalogs
-									<a href="#">(more info)</a>
-								</li>
-								<div id="newspapersinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/newspapers.jpeg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="books">
-									Phone books, soft-cover books
-									<a href="#">(more info)</a>
-								</li>
-								<div id="booksinfo">
-									<ul>
-										<li class="info">
-											Paperbacks, comic books, etc.
-										</li>
-										<li class="info">
-											Image: <img src="/static/images/phonebook.jpg">
-										</li>
-									</ul>
-								</div>
-							</ul>
-						</div>
-					</ul>
+					<div class="row">
+						<div class="col-md-12 paper"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 newspaper"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 phonebook"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 wrapping-paper"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 cardboard"></div>
+					</div>
 				</div>
+
 				<div class="col-md-6">
-					<ul>
-						<li class="info">
-							Cardboard
-						</li>
-						<div>
-							<ul>
-							<li class="info" id="smooth-cardboard">
-								Smooth cardboard
-								<a href="#">(more info)</a>
-							</li>
-							<div id="smooth-cardboardinfo">
-								<ul>
-									<li class="info">
-										Shoe boxes, tubes from paper towel and toilet paper rolls, cardboard from product packaging. For food boxes, remove inside and outside plastic wrappers.
-									</li>
-									<li class="info">
-										Image: <img src="/static/images/smooth-cardboard.jpg">
-									</li>
-								</ul>
-							</div>
-							<li class="info" id="corrugated-cardboard">
-								Corrugated cardboard
-								<a href="#">(more info)</a>
-							</li>
-							<div id="corrugated-cardboardinfo">
-								<ul>
-									<li class="info">
-										If flattened boxes are large, place them next to the recycling bin.
-									</li>
-									<li class="info">
-										Image: <img src="/static/images/corrugated-cardboard.jpg">
-									</li>
-								</ul>
-							</div>
-							<li class="info" id="cardboard">
-								Cardboard egg cartons and trays
-								<a href="#">(more info)</a>
-							</li>
-							<div id="cardboardinfo">
-								<ul>
-									<li class="info">
-										Image: <img src="/static/images/egg-carton.jpg">
-									</li>
-								</ul>
-							</div>
-						</ul>
-					</ul> 
+					<div class="row">
+						<div class="col-md-12 mail"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 paper-bags"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 smooth-cardboard"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 corrugated-cardboard"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 {% endblock %}

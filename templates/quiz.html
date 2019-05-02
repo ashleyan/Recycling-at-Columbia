@@ -114,6 +114,21 @@
 			border-color: red;
 			font-family: "Times New Roman", Times, serif;
 		}
+
+		#backtohome {
+		    display: none;
+		}
+
+		.button{
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.text{
+			font-size: 24px;
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;
+		}
 	</style>
 {% endblock %}
 
@@ -138,6 +153,13 @@
 			<div class="row middle">
 				<div class="col-md-12 instructions">
 					Drag the items to the correct bins!
+				</div>
+			</div>
+			<div class="row middle">
+				<div class="col-md-12 button" id="backtohome">
+					<a href="{{ url_for('home') }}" class="button">
+						<button class='btn btn-warning text'>Back to Homepage</button>
+					</a>
 				</div>
 			</div>
 			<div class="row middle">

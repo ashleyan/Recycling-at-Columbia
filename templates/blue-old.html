@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ url_for('static', filename = 'blue.js') }}"></script>
+{% endblock %}
+
+{% block style %}
+	<style>
+        .bin{
+        	background-color: rgb(0, 56, 102);
+			padding: 20px;
+			color: white;
+		}
+
+		.title{
+			text-align: center;
+			font-size: 24px;
+		}
+
+		.info{
+			margin-top: 10px;
+		}
+
+		#glassinfo {
+		    display: none;
+		}
+
+		#metalinfo {
+		    display: none;
+		}
+
+		#aluminuminfo {
+		    display: none;
+		}
+
+		#household-metalinfo {
+		    display: none;
+		}
+
+		#plasticinfo {
+		    display: none;
+		}
+
+		#beverageinfo {
+		    display: none;
+		}
+
+		img{
+			height: 120px;
+			width: 158px;
+			margin-left: 10px;
+		}
+    </style>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12 bin">
+			<div class="row">
+				<div class="col-md-12 title">
+					<span>METAL, PLASTIC,</span> 
+					<br>
+					<span>GLASS, CARTONS</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul>
+						<li class="info">
+							Metal
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="metal">
+									Metal cans
+									<a href="#">(more info)</a>
+								</li>
+								<div id="metalinfo">
+									<ul>
+										<li class="info">
+											Tuna cans, empty aerosol cans, empty and dried-out paint cans with lids removed, for example.
+										</li>
+										<li class="info">
+											Image: <img src="/static/images/metal-cans.jpg">
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="aluminum">
+									Aluminum foil wrap and trays
+									<a href="#">(more info)</a>
+								</li>
+								<div id="aluminuminfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/aluminum-foil.jpg">
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="household-metal">
+									Household metal
+									<a href="#">(more info)</a>
+								</li>
+								<div id="household-metalinfo">
+									<ul>
+										<li class="info">
+											Wire coat hangers, pots, pans, for example.
+										</li>
+										<li class="info">
+											Image: <img src="/static/images/household-metal.jpg">
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+						<li class="info">
+							Glass
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="glass">
+									Glass bottles and jars
+									<a href="#">(more info)</a>
+								</li>
+								<div id="glassinfo">
+									<ul>
+										<li class="info">
+											Glassware from laboratories is recyclable under a separate program.
+										</li>
+										<li class="info">
+											Image: <img src="/static/images/glass.jpg">
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<ul>
+						<li class="info">
+							Plastic
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="plastic">
+									Plastic bottles, jugs, caps, lids, food containers, non food containers, packaging, and houseware
+									<a href="#">(more info)</a>
+								</li>
+								<div id="plasticinfo">
+									<ul>
+										<li class="info">
+											Yogurt, take out, tupperware, flower pots
+										</li>
+										<li class="info">
+											Image: <img src="/static/images/plastic-bottles.png">
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+						<li class="info">
+							Cartons
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="beverage">
+									Beverage cartons and drink boxes
+									<a href="#">(more info)</a>
+								</li>
+								<div id="beverageinfo">
+									<ul>
+										<li class="info">
+											Milk and juice.
+										</li>
+										<li class="info">
+											Image: <img src="/static/images/drink-box.jpeg">
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
