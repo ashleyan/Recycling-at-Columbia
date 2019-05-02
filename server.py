@@ -10,7 +10,7 @@ def home():
 
 @app.route('/black')
 def black():
-    return render_template('black-new.html') 
+    return render_template('black.html') 
 
 @app.route('/blue')
 def blue():

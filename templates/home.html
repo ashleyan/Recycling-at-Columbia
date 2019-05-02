@@ -9,17 +9,18 @@
 	<script src="home.js"></script>
 	<style>
         .bin{
-			margin-top: 25px;
+			margin-top: 20px;
 		}
 
 		img{
-			height: 450px;
+			height: 420px;
 			width: 325px;
 		}
 
 		.button{
 			margin-top: 25px;
 			text-align: center;
+			font-family: "Times New Roman", Times, serif;
 		}
 
 		.text{
@@ -47,6 +48,24 @@
     </style>
 </head>
 	<body>
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
+			<ul class="navbar-nav">
+				<a class="navbar-brand" href="{{ url_for('home') }}">Homepage</a>
+			    <li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('black') }}">Trash</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('green') }}">Mixed Paper</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('blue') }}">Metal, Plastic, Glass, Cartons</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="{{ url_for('quiz') }}">Quiz</a>
+				</li>
+			</ul>
+		</nav>
+
 		<div class="container">
 			<div class="col-md-12">
 				<div class="row">

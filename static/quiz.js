@@ -1,9 +1,8 @@
 // final product should be 5-10 min long
 
 // display
-// making user go through specific order of steps
-
-// images in bin on left and hover over them to display what it is on the right? flashcards type of thing?
+// drag and drop thing for info pages
+// put home button at bottom of every info page
 // making "why wrong" descriptions more readable
 
 

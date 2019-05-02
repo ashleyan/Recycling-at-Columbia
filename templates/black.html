@@ -6,216 +6,101 @@
 
 {% block style %}
 	<style>
-        .bin{
-        	background-color: rgb(56,56,56);
-			padding: 10px;
-			color: white;
+		img {
+			height: 110px;
+			width: 120px;
 		}
 
-		.title{
+		.black {
+			background-color: rgb(56,56,56);
+			height: 480px;
+		}
+
+		.black-bin-label{
+			padding-top: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+			color: white;
+			font-size: 20px;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.black-bin-text{
 			text-align: center;
 			font-size: 34px;
+		}
+
+		.black-bin{
+			background-color: white;
+		}
+
+		.button{
+			margin-top: 25px;
+			text-align: center;
 			font-family: "Times New Roman", Times, serif;
 		}
 
-		.info{
-			margin-top: 10px;
-			margin-bottom: 10px;
-			font-size: 16px;
+		.text{
+			font-size: 24px;
+			text-align: center;
 			font-family: "Times New Roman", Times, serif;
-		}
-
-		.info-title{
-			margin-top: 10px;
-			margin-bottom: 10px;
-			font-size: 22px;
-			font-family: "Times New Roman", Times, serif;
-		}
-
-		#hardcoverinfo {
-		    display: none;
-		}
-
-		#usedinfo {
-		    display: none;
-		}
-
-		#soiledinfo {
-		    display: none;
-		}
-
-		#heavily-soiledinfo {
-		    display: none;
-		}
-
-		#coatedinfo {
-		    display: none;
-		}
-
-		#glassinfo {
-		    display: none;
-		}
-
-		#plasticinfo {
-		    display: none;
-		}
-
-		#styrofoaminfo {
-		    display: none;
-		}
-
-		img{
-			height: 120px;
-			width: 158px;
-			margin-left: 10px;
 		}
     </style>
 {% endblock %}
 
 {% block content %}
+<div class="col-md-12">
 	<div class="row">
-		<div class="col-md-12 bin">
-			<div class="row">
-				<div class="col-md-12 title">
-					TRASH
-				</div>
+
+		<div class="col-md-8">
+			<div class="black-bin-label black">
+				<div class="black-bin-text">TRASH</div>
+				<ul class="black-title"></ul>
+			</div>
+			<div class="black-bin"></div>
+			<div class="button">
+				<a href="{{ url_for('home') }}" class="button">
+					<button class='btn btn-warning text'>Back to Homepage</button>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="row text">
+				Put each of the items back into the "Trash" bin to reveal details!
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<ul>
-						<li class="info-title">
-							DO NOT put in 'Mixed Paper'
-						</li>
-						<div>
-							<ul>
-								<li class="info" id="hardcover">
-									Hardcover books
-									<a href="#">(more info)</a>
-								</li>
-								<div id="hardcoverinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/hardcover-books.jpg">
-										</li>
-										<li class="info">
-											Note: Recyclable only if the cover is removed.
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="used">
-									Used napkins, paper towels or tissues
-									<a href="#">(more info)</a>
-								</li>
-								<div id="usedinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/used-napkins.jpg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="soiled">
-									Soiled paper cups or plates
-									<a href="#">(more info)</a>
-								</li>
-								<div id="soiledinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/soiled-paper-cup.png">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="heavily-soiled">
-									Heavily soiled paper
-									<a href="#">(more info)</a>
-								</li>
-								<div id="heavily-soiledinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/heavily-soiled-paper.jpg">
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="coated">
-									Plastic- or wax-coated paper or cardboard
-									<a href="#">(more info)</a>
-								</li>
-								<div id="coatedinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/candy-wrapper.jpg">
-										</li>
-										<li class="info">
-											Examples: Candy wrappers, take-out containers
-										</li>
-									</ul>
-								</div>
-							</ul>
-						</div>
-					</ul>
+					<div class="row">
+						<div class="col-md-12 plastic-toys"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 heavily-soiled-paper"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 ceramics"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 soiled-paper"></div>
+					</div>
 				</div>
+
 				<div class="col-md-6">
-					<ul>
-						<li class="info-title">
-							DO NOT put in 'Metal, Plastic, Glass, Cartons'
-						</li>
-						<div>
-							<ul>
-								<li class="info" id="glass">
-									Any glass items other than glass bottles and jars
-									<a href="#">(more info)</a>
-								</li>
-								<div id="glassinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/ceramics.jpg">
-										</li>
-										<li class="info">
-											Examples: Mirrors, light bulbs, ceramics, glassware
-										</li>
-									</ul>
-								</div>
-								<li class="info" id="plastic">
-									Any plastic items other than plastic bottles, jugs and containers
-									<a href="#">(more info)</a>
-								</li>
-								<div id="plasticinfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/plastic-toys.jpg">
-										</li>
-										<li class="info">
-											Examples: Plastic toys, cups, bags, wrap
-										</li>
-									</ul>
-								</div>
-							</ul>
-						</div>
-					</ul>
-					<ul>
-						<li class="info-title">
-							Others
-						</li>
-						<div>
-							<ul>
-								<li class="info" id="styrofoam">
-									Styrofoam
-									<a href="#">(more info)</a>
-								</li>
-								<div id="styrofoaminfo">
-									<ul>
-										<li class="info">
-											Image: <img src="/static/images/styrofoam.jpg">
-										</li>
-										<li class="info">
-											Examples: Cups, egg cartons, trays
-										</li>
-									</ul>
-								</div>
-							</ul>
-						</div>
-					</ul>
+					<div class="row">
+						<div class="col-md-12 styrofoam"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 used-napkins"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 candy-wrapper"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 hardcover"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 {% endblock %}

@@ -1,0 +1,221 @@
+{% extends "layout.html" %}
+
+{% block scripts %}
+	<script type="text/javascript" src="{{ url_for('static', filename = 'black.js') }}"></script>
+{% endblock %}
+
+{% block style %}
+	<style>
+        .bin{
+        	background-color: rgb(56,56,56);
+			padding: 10px;
+			color: white;
+		}
+
+		.title{
+			text-align: center;
+			font-size: 34px;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.info{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 16px;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.info-title{
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 22px;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		#hardcoverinfo {
+		    display: none;
+		}
+
+		#usedinfo {
+		    display: none;
+		}
+
+		#soiledinfo {
+		    display: none;
+		}
+
+		#heavily-soiledinfo {
+		    display: none;
+		}
+
+		#coatedinfo {
+		    display: none;
+		}
+
+		#glassinfo {
+		    display: none;
+		}
+
+		#plasticinfo {
+		    display: none;
+		}
+
+		#styrofoaminfo {
+		    display: none;
+		}
+
+		img{
+			height: 120px;
+			width: 158px;
+			margin-left: 10px;
+		}
+    </style>
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-12 bin">
+			<div class="row">
+				<div class="col-md-12 title">
+					TRASH
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul>
+						<li class="info-title">
+							DO NOT put in 'Mixed Paper'
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="hardcover">
+									Hardcover books
+									<a href="#">(more info)</a>
+								</li>
+								<div id="hardcoverinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/hardcover-books.jpg">
+										</li>
+										<li class="info">
+											Note: Recyclable only if the cover is removed.
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="used">
+									Used napkins, paper towels or tissues
+									<a href="#">(more info)</a>
+								</li>
+								<div id="usedinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/used-napkins.jpg">
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="soiled">
+									Soiled paper cups or plates
+									<a href="#">(more info)</a>
+								</li>
+								<div id="soiledinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/soiled-paper-cup.png">
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="heavily-soiled">
+									Heavily soiled paper
+									<a href="#">(more info)</a>
+								</li>
+								<div id="heavily-soiledinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/heavily-soiled-paper.jpg">
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="coated">
+									Plastic- or wax-coated paper or cardboard
+									<a href="#">(more info)</a>
+								</li>
+								<div id="coatedinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/candy-wrapper.jpg">
+										</li>
+										<li class="info">
+											Examples: Candy wrappers, take-out containers
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<ul>
+						<li class="info-title">
+							DO NOT put in 'Metal, Plastic, Glass, Cartons'
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="glass">
+									Any glass items other than glass bottles and jars
+									<a href="#">(more info)</a>
+								</li>
+								<div id="glassinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/ceramics.jpg">
+										</li>
+										<li class="info">
+											Examples: Mirrors, light bulbs, ceramics, glassware
+										</li>
+									</ul>
+								</div>
+								<li class="info" id="plastic">
+									Any plastic items other than plastic bottles, jugs and containers
+									<a href="#">(more info)</a>
+								</li>
+								<div id="plasticinfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/plastic-toys.jpg">
+										</li>
+										<li class="info">
+											Examples: Plastic toys, cups, bags, wrap
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+					</ul>
+					<ul>
+						<li class="info-title">
+							Others
+						</li>
+						<div>
+							<ul>
+								<li class="info" id="styrofoam">
+									Styrofoam
+									<a href="#">(more info)</a>
+								</li>
+								<div id="styrofoaminfo">
+									<ul>
+										<li class="info">
+											Image: <img src="/static/images/styrofoam.jpg">
+										</li>
+										<li class="info">
+											Examples: Cups, egg cartons, trays
+										</li>
+									</ul>
+								</div>
+							</ul>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
