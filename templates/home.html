@@ -9,23 +9,40 @@
 	<script src="home.js"></script>
 	<style>
         .bin{
-			margin-top: 20px;
+			margin-top: 25px;
 		}
 
 		img{
-			height: 500px;
+			height: 450px;
 			width: 325px;
+		}
+
+		.button{
+			margin-top: 25px;
+			text-align: center;
 		}
 
 		.text{
 			font-size: 24px;
 			text-align: center;
+			font-family: "Times New Roman", Times, serif;
 		}
 
-		.quiz{
+		.title{
 			margin-top: 20px;
 			font-size: 24px;
 			text-align: center;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		img:hover {
+			animation: fadeout .5s ease forwards;
+		}
+
+		@keyframes fadeout {
+			to {
+				opacity: 0.6;
+		 	}
 		}
     </style>
 </head>
@@ -33,11 +50,10 @@
 		<div class="container">
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-12 text">
-						Click one of the bins to learn more!
+					<div class="col-md-12 title">
+						Learn about Recycling at Columbia University!
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-md-4 bin">
 						<a href="{{ url_for('black') }}">
@@ -57,12 +73,9 @@
 						</a>
 					</div>
 				</div>
-
 				<div class="row">
-					<div class="col-md-12 quiz">
-						<a href="{{ url_for('quiz') }}">
-							Click here to take quiz!
-						</a>
+					<div class="col-md-12 button">
+						<a href="{{ url_for('quiz') }}"><button class='btn btn-warning text'>Take Quiz</button></a>
 					</div>
 				</div>
 			</div>

@@ -26,22 +26,28 @@
 			height: 300px;
 		}
 
-		.green-bin-label{
-			padding-top: 50px;
+		.black-bin-label{
+			padding-top: 60px;
 			color: white;
 			text-align: center;
+			font-size: 20px;
+			font-family: "Times New Roman", Times, serif;
+		}
+
+		.green-bin-label{
+			padding-top: 60px;
+			color: white;
+			text-align: center;
+			font-size: 20px;
+			font-family: "Times New Roman", Times, serif;
 		}
 
 		.blue-bin-label{
-			padding-top: 50px;
+			padding-top: 30px;
 			color: white;
 			text-align: center;
-		}
-
-		.black-bin-label{
-			padding-top: 50px;
-			color: white;
-			text-align: center;
+			font-size: 20px;
+			font-family: "Times New Roman", Times, serif;
 		}
 
 		.green-bin{
@@ -74,14 +80,16 @@
 			margin-bottom: 30px;
 		}
 
-		.text{
+		.instructions{
 			text-align: center;
 			font-size: 24px;
+			font-family: "Times New Roman", Times, serif;
 		}
 
 		.caption{
 			text-align: center;
 			background-color: white;
+			font-family: "Times New Roman", Times, serif;
 		}
 
 		img{
@@ -92,17 +100,19 @@
 		.congrats{
 			text-align: center;
 			font-size: 32px;
+			font-family: "Times New Roman", Times, serif;
 		}
 
-		.wrong-text{
-			text-align: center;
-			font-size: 20px;
+		.wrong-info{
+			margin-top: 20px;
+			background-color: #F08080;
 		}
 
 		.wrong-info-text{
-			text-align: center;
 			font-size: 16px;
-			margin-top: 30px;
+			border: solid;
+			border-color: red;
+			font-family: "Times New Roman", Times, serif;
 		}
 	</style>
 {% endblock %}
@@ -125,29 +135,37 @@
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div class="row middle first-middle">
-				<div class="col-md-12 text">
+			<div class="row middle">
+				<div class="col-md-12 instructions">
 					Drag the items to the correct bins!
 				</div>
 			</div>
 			<div class="row middle">
 				<div class="col-md-4">
 					<div class="black-bin-label black">
-						TRASH
+						<div>TRASH</div>
+						<br>
+						<div class="black-title"></div>
 					</div>
 					<div class="black-bin"></div>
 				</div>
 				<div class="col-md-4">
 					<div class="green-bin-label green">
-						MIXED PAPER
+						<div>MIXED PAPER</div>
+						<br>
+						<div class="green-title"></div>
 					</div>
 					<div class="green-bin"></div>
 				</div>
 				<div class="col-md-4 right-bin">
 					<div class="blue-bin-label blue">
-						<span>METAL, PLASTIC,</span>
-						<br> 
-						<span>GLASS, CARTONS</span>
+						<div>
+							<span>METAL, PLASTIC,</span>
+							<br> 
+							<span>GLASS, CARTONS</span>
+						</div>
+						<br>
+						<div class="blue-title"></div>
 					</div>
 					<div class="blue-bin"></div>
 				</div>
@@ -158,6 +176,7 @@
 				<div class="col-md-3 newspaper"></div>
 				<div class="col-md-3 phonebook"></div>
 			</div>
+			<div class="row middle"></div>
 		</div>
 		<div class="col-md-2 right-column">
 			<div class="row">

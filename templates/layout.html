@@ -14,10 +14,22 @@
 	{% endblock %}
 </head>
 	<body>
-		<nav class="navbar navbar-expand-sm">
+		<nav class="navbar navbar-expand-sm bg-light navbar-light">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-				  <a class="nav-link" href="{{ url_for('home') }}"><- Back to Home</a>
+				<a class="navbar-brand" href="{{ url_for('home') }}">Homepage</a>
+				<!-- Dropdown -->
+			    <li class="nav-item active dropdown">
+			      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+			      	Bins
+			      </a>
+			      <div class="dropdown-menu">
+			        <a class="dropdown-item" href="{{ url_for('black') }}">Trash</a>
+			        <a class="dropdown-item" href="{{ url_for('green') }}">Mixed Paper</a>
+			        <a class="dropdown-item" href="{{ url_for('blue') }}">Metal, Plastic, Glass, Cartons</a>
+			      </div>
+			    </li>
+				<li class="nav-item active">
+				  <a class="nav-link" href="{{ url_for('quiz') }}">Quiz</a>
 				</li>
 			</ul>
 		</nav>
