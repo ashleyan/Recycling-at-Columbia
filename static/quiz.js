@@ -1,13 +1,10 @@
 // final product should be 5-10 min long
 
-// later
+// maybe
 // making "why wrong" descriptions more readable
-// user test homepage (is it obvious to users that you click on the bins)
 // rn it tells total Qs wrong (but includes each retake instead of per retake)
 // have a quiz that includes ALL the images as well
 // have a gallery that includes ALL the images to drag
-
-// maybe
 // replacing "drag items to correct bin" text with "why wrong" descriptions
 // put name of bin underneath bin
 // make users look at bin info page that contains the most amount of Qs they got wrong
