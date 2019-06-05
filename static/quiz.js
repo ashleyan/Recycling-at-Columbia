@@ -1,6 +1,4 @@
-// final product should be 5-10 min long
-
-// maybe
+// further implementation ideas
 // making "why wrong" descriptions more readable
 // rn it tells total Qs wrong (but includes each retake instead of per retake)
 // have a quiz that includes ALL the images as well
